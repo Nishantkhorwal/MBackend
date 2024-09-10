@@ -6,6 +6,7 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import propertyRoutes from './routes/propertyRoutes.js';
 import userRoutes from './routes/userRoutes.js';
+import tenantRoutes from './routes/tenantRoutes.js';
 
 
 
@@ -30,5 +31,6 @@ app.use(cookieParser());
 app.listen(process.env.PORT, () => {
   console.log('Server listening on port 3000!');
 });
-app.use('/api', propertyRoutes);
+app.use('/api/properties', propertyRoutes);
 app.use('/api', userRoutes);
+app.use('/api/tenants', tenantRoutes);
