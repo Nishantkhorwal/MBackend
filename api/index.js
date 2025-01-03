@@ -26,11 +26,11 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser());
+app.use('/uploads', express.static('uploads'));
 
-
-app.listen(process.env.PORT, () => {
-  console.log('Server listening on port 3000!');
-});
 app.use('/api/properties', propertyRoutes);
 app.use('/api', userRoutes);
 app.use('/api/tenants', tenantRoutes);
+app.listen(process.env.PORT, () => {
+  console.log('Server listening on port 3000!');
+});
